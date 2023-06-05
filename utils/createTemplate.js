@@ -1,4 +1,4 @@
-function createTemplate(name, phone, email, category, target, reviewText) {
+function createTemplate({ name, phone, email, category, target, reviewText }) {
   const food = `- Категория: Еда
 - Наименование: ${target !== null ? target : ""}
 - Текст: ${reviewText}`;
@@ -10,17 +10,17 @@ function createTemplate(name, phone, email, category, target, reviewText) {
   const other = `- Категория: Другое
 - Текст: ${reviewText}`;
 
-  const withName = `- Имя: ${name === "" ? "не указано" : name}`;
+  const withName = `- Имя: ${name}`;
 
-  const withPhone = `- Имя: ${name === "" ? "не указано" : name}
-- Номер телефона: ${phone === "" ? "не указано" : phone}`;
+  const withPhone = `- Имя: ${name}
+- Номер телефона: ${phone}`;
 
-  const withEmail = `- Имя: ${name === "" ? "не указано" : name}
-- Номер телефона: ${phone === "" ? "не указано" : phone}
-- Адрес почты: ${email === "" ? "не указано" : email}`;
+  const withEmail = `- Имя: ${name}
+- Номер телефона: ${phone}
+- Адрес почты: ${email}`;
 
   const sender =
-    phone !== undefined && email !== undefined ? withEmail : phone !== undefined ? withPhone : withName;
+    phone !== null && email !== null ? withEmail : phone !== null ? withPhone : withName;
 
   const whichCategory =
     category === "food" ? food : category === "other" ? other : staff;
