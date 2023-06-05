@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: whiteList }));
 
-app.use(require("./routes/telegram.route"));
+app.use(require("./routes"));
 
 app.listen(port, () => {
   console.log("Server started on port " + port);
